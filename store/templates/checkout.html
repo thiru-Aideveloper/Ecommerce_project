@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Checkout</h2>
+
+    <hr>
+
+    <h3>Total Amount : ₹{{ total }}</h3>
+
+    <button
+        id="rzp-button"
+        class="btn btn-success">
+
+        Pay Now
+
+    </button>
+
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+
+var options = {
+
+    "key": "{{ razorpay_key }}",
+
+    "amount": "{{ payment.amount }}",
+
+    "currency": "INR",
+
+    "name": "ShopEasy",
+
+    "description": "E-Commerce Payment",
+
+    "order_id": "{{ payment.id }}",
+
+    "handler": function(response){
+
+        window.location.href =
+        "{% url 'payment_success' %}";
+
+    }
+
+};
+
+var rzp = new Razorpay(options);
+
+document.getElementById('rzp-button').onclick = function(e){
+
+    rzp.open();
+
+    e.preventDefault();
+
+}
+
+</script>
+
+{% endblock %}

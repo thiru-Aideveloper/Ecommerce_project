@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">
+
+All Products
+
+</h2>
+
+<div class="row">
+
+{% for product in products %}
+
+<div class="col-md-4 mb-4">
+
+<div class="card shadow">
+
+<img
+src="{{ product.image.url }}"
+class="card-img-top product-img"
+>
+
+<div class="card-body">
+
+<h4>{{ product.name }}</h4>
+
+<h5>₹{{ product.price }}</h5>
+
+<p>
+
+{{ product.description|truncatewords:10 }}
+
+</p>
+
+<a
+href="{% url 'product_detail' product.id %}"
+class="btn btn-custom"
+>
+
+View Details
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

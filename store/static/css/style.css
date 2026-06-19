@@ -1,0 +1,40 @@
+body{
+    background:#f8fafc;
+}
+
+.navbar{
+    background:#0f172a;
+}
+
+.navbar-brand{
+    color:white !important;
+    font-weight:bold;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.product-img{
+    height:250px;
+    object-fit:cover;
+}
+
+.btn-custom{
+    background:#2563eb;
+    color:white;
+}
+
+.footer{
+    background:#0f172a;
+    color:white;
+    padding:20px;
+    margin-top:50px;
+}

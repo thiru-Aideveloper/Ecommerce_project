@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+My Orders
+
+</h2>
+
+<table class="table table-bordered bg-white">
+
+<tr>
+
+<th>Product</th>
+
+<th>Amount</th>
+
+<th>Status</th>
+
+<th>Date</th>
+
+</tr>
+
+{% for order in orders %}
+
+<tr>
+
+<td>
+
+{{ order.product.name }}
+
+</td>
+
+<td>
+
+₹{{ order.amount }}
+
+</td>
+
+<td>
+
+<span class="badge bg-success">
+
+{{ order.status }}
+
+</span>
+
+</td>
+
+<td>
+
+{{ order.created_at }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
